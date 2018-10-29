@@ -1,0 +1,76 @@
+* {
+  font-family: 'Covered By Your Grace', cursive;
+}
+body{
+  background: radial-gradient(rgb(191, 220, 230), rgb(139, 139, 138)) rgb(191, 220, 230);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+}
+body ::after {
+  content: "";
+  background: /*rgba(0, 0, 0, 0.2) */url(images/dinohead.png)no-repeat bottom right fixed;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  opacity: 0.5;
+  z-index: -1;
+  background-size: 75%; /*45em*/
+  background-repeat: no-repeat;
+}
+header {
+  position: relative;
+  text-align: left;
+  padding: 3px 20px 20px 20px;
+  background-color: rgb(191, 220, 230); /*193,219,162*/
+  border-radius: 2em 2em 0em 0em;
+}
+nav {
+  position: static;
+  overflow: hidden;
+  padding: 0 40px 0 40px;
+  margin: 0em 2em 0em 2em;
+  border-radius: 2em;
+  display: block;
+}
+nav h2 {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 3px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: block;
+}
+nav h2:hover {
+  background-color: rgb(191, 220, 230);
+  color: black;
+}
+main {
+  position: relative;
+  padding: 0 110px 0 110px;
+  margin: 2em;
+  border-radius: 6em;
+  display: block;
+}
+header, main, nav, footer {
+  border: 2px solid red;
+}
+footer {
+  clear: both;
+  position: fixed;
+  bottom: 3px;
+  right: 7px;
+  left: 7px;
+  text-align: center;
+  background-color: rgb(191, 220, 230);
+  border-radius: 0em 0em 2em 2em;
+}
+footer p:hover {
+  color: #f2f2f2;
+}
+html { min-height: 100% }
+
+  /*background-attachment: fixed;*/
