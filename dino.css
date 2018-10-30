@@ -21,19 +21,35 @@ body ::after {
   background-repeat: no-repeat;
 }
 header {
+  position: static;
+  text-align: left;
+/*  top: 3px;
+  right: 7px;
+  left: 7px;*/
+  padding: 3px 20px 20px 20px;
+  background-color: rgb(191, 220, 230); /*193,219,162*/
+  border-radius: 2em 2em 0em 0em;
+  /*width: 100%;*/
+}
+/*.bgheader { OM vill ha en osynlig div under header så den kan flyta
+FIXA HELLRE SÅ NAV BAREN FASTNAR
+https://codepen.io/JGallardo/pen/lJoyk
+  display: none;
   position: relative;
   text-align: left;
   padding: 3px 20px 20px 20px;
   background-color: rgb(191, 220, 230); /*193,219,162*/
-  border-radius: 2em 2em 0em 0em;
-}
+/*  border-radius: 2em 2em 0em 0em;
+  top: 3px;
+} */
 nav {
   position: static;
   overflow: hidden;
   padding: 0 40px 0 40px;
-  margin: 0em 2em 0em 2em;
-  border-radius: 2em;
+  /*margin: 0em 2em 0em 2em;*/
   display: block;
+  background-color: rgb(139, 139, 138);
+  opacity: 0.9;
 }
 nav h2 {
   float: left;
@@ -56,7 +72,7 @@ main {
   display: block;
 }
 header, main, nav, footer {
-  border: 2px solid red;
+/*  border: 2px solid red;*/
 }
 footer {
   clear: both;
@@ -67,10 +83,29 @@ footer {
   text-align: center;
   background-color: rgb(191, 220, 230);
   border-radius: 0em 0em 2em 2em;
+  /*z-index: -2;*/
 }
-footer p:hover {
+footer p:hover, footer h3:hover{
   color: #f2f2f2;
 }
 html { min-height: 100% }
+/*  Ändra ngt så det stackar på varandra
+iställer för vid varandra vid mindre än 600px skärm
+https://www.w3schools.com/css/css_website_layout.asp
 
-  /*background-attachment: fixed;*/
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+Bättre tvärt om!
+/* For mobile phones:
+[class*="col-"] {
+    width: 100%;
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: 
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}*/
+
+  /*background-attachment: fixed; background image kommer inte scrolla med skärmen*/
