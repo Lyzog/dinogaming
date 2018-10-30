@@ -90,8 +90,8 @@ https://codepen.io/JGallardo/pen/lJoyk
 
 .content {
   position: relative;
-  padding: 0 110px 0 110px;
-  margin: 35px 0px;
+  padding: 0 10px 0 10px;
+  margin: 35px 5px;
   /*display: block;*/
   /* Flex med columner börjar här */
   display: flex;
@@ -106,18 +106,32 @@ https://codepen.io/JGallardo/pen/lJoyk
   flex-direction: row;
 }
 .topcontent {
-  width: 75%;
-  margin: auto;
+  /*width: 80%;*/
+  /*margin: auto;*/
+  align-items: center;
+  justify-content: space-evenly;
+}
+.topcontent p:last-child, .topcontent p:first-child
+{
+  flex: 1 1 50px;
+  /* TODO titta på detta, verkar inte funka */
+  /*width: 10%;*/
+  text-align: center;;
 }
 .topcontent p:last-child {
-  transform: rotate(15deg);
+  transform: skewY(15deg);
+  padding: 0px 0px 0px 10px;
 }
 .topcontent p:first-child{
-  transform: rotate(-15deg);
+  transform: skewY(-15deg);
+  padding: 0px 10px 0px 0px;
 }
 #maintopcontent {
-  flex: 3 1 auto;
+  flex: 2 1 auto;
   text-align: center;
+}
+.maincontent {
+  /* deklarerat flex 1 1 auto; tidigare*/
 }
 header, main, nav, footer {
 /*  border: 2px solid red;*/
@@ -155,6 +169,10 @@ header, main, nav, footer {
   header {
     padding: 2px 10px 5px 15px;
     font-size: 1.5em;
+  }
+  .content {
+    position: relative;
+    padding: 0 110px 0 110px;
   }
   .contact {
     padding: 1px 10px 1px 15px;
