@@ -91,7 +91,7 @@ https://codepen.io/JGallardo/pen/lJoyk
 .content {
   position: relative;
   padding: 0 10px 0 10px;
-  margin: 35px 5px;
+  margin: 15px 5px;
   /*display: block;*/
   /* Flex med columner börjar här */
   display: flex;
@@ -108,6 +108,9 @@ https://codepen.io/JGallardo/pen/lJoyk
 .topcontent {
   /*width: 80%;*/
   /*margin: auto;*/
+  background-color: gray;
+  padding: 20px 0px;
+  margin-bottom: 15px;
   align-items: center;
   justify-content: space-evenly;
 }
@@ -130,8 +133,25 @@ https://codepen.io/JGallardo/pen/lJoyk
   flex: 2 1 auto;
   text-align: center;
 }
+#maintopcontent img {
+  width: 100px; height: 100px;
+}
 .maincontent {
+  flex-wrap:wrap;
+  justify-content: space-around;
+  align-content:stretch;
+
   /* deklarerat flex 1 1 auto; tidigare*/
+}
+.maincontent img{
+  padding: 5px 3px;
+  width: 120px; height: 120px;
+}
+.gamecontent_icon{
+  max-width: 126px;
+  margin-bottom: 20px;
+  border: 3px solid black;
+  background-color: gray;
 }
 header, main, nav, footer {
 /*  border: 2px solid red;*/
@@ -156,7 +176,17 @@ header, main, nav, footer {
   color: #f2f2f2;
 }
 
-/* stor skärm */
+
+
+
+/*-------------------------------------------------------------------------------
+
+
+
+
+
+
+ stor skärm */
 @media (min-width: 450px) { /*only screen and */
   body ::after {
     background: /*rgba(0, 0, 0, 0.5) */url(images/dinohead.png)no-repeat bottom right fixed;
@@ -173,6 +203,19 @@ header, main, nav, footer {
   .content {
     position: relative;
     padding: 0 110px 0 110px;
+  }
+  #maintopcontent img {
+    width: 250px; height: 250px;
+  }
+  .maincontent {
+    justify-content:space-evenly;
+  }
+  .maincontent img{
+    width: 200px; height: 200px;
+  }
+  .gamecontent_icon {
+    max-width: 206px;
+    padding: 0px 5px;
   }
   .contact {
     padding: 1px 10px 1px 15px;
