@@ -13,7 +13,7 @@ body{
 }
 body ::after {
   content: "";
-  background: /*rgba(0, 0, 0, 0.5) */url(images/dinohead.png)no-repeat bottom 46px right fixed;
+  background: /*rgba(0, 0, 0, 0.5) */url(images/dinohead.png)no-repeat bottom 43px right fixed;
   top: 0px;
   left: 10px;
   bottom: 10px;
@@ -111,7 +111,7 @@ https://codepen.io/JGallardo/pen/lJoyk
 .topcontent {
   /*width: 80%;*/
   /*margin: auto;*/
-  background-color: gray;
+  background-color: rgb(139, 139, 138);
   padding: 20px 0px;
   margin-bottom: 15px;
   align-items: center;
@@ -122,7 +122,7 @@ https://codepen.io/JGallardo/pen/lJoyk
   flex: 1 1 50px;
   /* TODO titta på detta, verkar inte funka */
   /*width: 10%;*/
-  text-align: center;;
+  text-align: center;
 }
 .topcontent p:last-child {
   transform: skewY(15deg);
@@ -143,7 +143,7 @@ https://codepen.io/JGallardo/pen/lJoyk
   flex-wrap:wrap;
   justify-content: space-around;
   align-content:stretch;
-
+  padding-bottom: 20px;
   /* deklarerat flex 1 1 auto; tidigare*/
 }
 .maincontent img{
@@ -153,8 +153,11 @@ https://codepen.io/JGallardo/pen/lJoyk
 .gamecontent_icon{
   max-width: 126px;
   margin-bottom: 20px;
-  border: 3px solid black;
-  background-color: gray;
+  border: 3px solid rgb(191, 220, 230);
+  background-color: rgb(139, 139, 138);
+}
+.gamecontent_text {
+  margin: 3px 10px;
 }
 header, main, nav, footer {
 /*  border: 2px solid red;*/
@@ -162,7 +165,7 @@ header, main, nav, footer {
 .contact {
   clear: both;
   position: fixed;
-  bottom: 3px;
+  bottom: 0px;
   right: 7px;
   left: 7px;
   text-align: center;
@@ -216,13 +219,14 @@ header, main, nav, footer {
   }
   .maincontent {
     justify-content:space-evenly;
+    padding-bottom: 75px;
   }
   .maincontent img{
     width: 200px; height: 200px;
   }
   .gamecontent_icon {
+    padding: 0px 10px;
     max-width: 206px;
-    padding: 0px 5px;
   }
   .contact {
     padding: 1px 10px 1px 15px;
@@ -235,13 +239,11 @@ header, main, nav, footer {
 }
 @media (min-width: 1000px) {
   body ::after {
-    background: /*rgba(0, 0, 0, 0.5) */url(images/dinohead.png)no-repeat bottom right fixed;
     background-size: 65%; /*45em*/
   }
 }
 @media (min-width: 1200px) {
   body ::after {
-    background: /*rgba(0, 0, 0, 0.5) */url(images/dinohead.png)no-repeat bottom right fixed;
     background-size: 60%; /*45em*/
   }
 }
