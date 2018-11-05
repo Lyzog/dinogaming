@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" href="dino.css">
   <meta name="viewport" content="width=device-width">
   <!--Putting script on the bottom would speed up the pageload -->
-  <script src="dino.js"></script>
   <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
 
 </head>
@@ -18,12 +17,12 @@
   </header>
   <!--<div class="bgheader">
     <h1>Dino Gaming!</h1></div> -->
-  <nav class="menu" id="hannnnnnna">
+  <nav class="nav" id="hannnnnnna">
     <div class="navigation">
-      <h2>Action</h2>
-      <h2>Puzzle</h2>
-      <h2>RPG</h2>
-      <h2>Platform</h2>
+      <h2 class="menu" id="action">Action</h2>
+      <h2 class="menu" id="puzzle">Puzzle</h2>
+      <h2 class="menu highlight" id="rpg">RPG</h2>
+      <h2 class="menu" id="platform"> Platform</h2>
     </div>
   </nav>
   <main class="content">
@@ -35,70 +34,71 @@
         <p>FPS</p>
     </div>
     <div class="maincontent" id="maincontent">
-      <div class="gamecontent_icon rpg mobile keyboard">
+
+      <div class="gamecontent_icon rpg mobile keyboard visible_game">
         <a href="games\1Quest.html">
           <img src="images\1Quest_icon.png" alt="1Quest">
         </a>
         <p class="gamecontent_text">1Quest</p>
       </div>
 
-      <div class="gamecontent_icon rpg mobile">
+      <div class="gamecontent_icon rpg mobile visible_game">
         <a href="games\hired_heroes.html">
           <img src="images\hired_heroes_icon.png" alt="hired heroes">
         </a>
         <p class="gamecontent_text">Hired Heroes</p>
       </div>
 
-      <div class="gamecontent_icon rpg keyboard">
+      <div class="gamecontent_icon rpg keyboard visible_game">
         <a href="games\Quick_Quests.html">
           <img src="images\Quick_Quests_icon.png" alt="Quick Quests">
         </a>
         <p class="gamecontent_text">Quick Quests</p>
       </div>
 
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon puzzle mobile keyboard">
         <a href="games\Blocks.html">
           <img src="images\Blocks_icon.png" alt="Blocks">
         </a>
         <p class="gamecontent_text">Blocks</p>
       </div>
 
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon platform">
         <a href="games\Run_3.html">
           <img src="images\Run_3_icon.png" alt="Run 3">
         </a>
         <p class="gamecontent_text">Run 3</p>
       </div>
 
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon platform ">
         <a href="games\Learn_to_fly_2.html">
           <img src="images\Learn_to_fly_2_icon.png" alt="Learn to fly 2">
         </a>
         <p class="gamecontent_text">Learn to fly 2</p>
       </div>
 
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon rpg">
         <a href="games\Epic_Battle_Fantasy_4.html">
           <img src="images\Epic_Battle_Fantasy_4_icon.png" alt="Epic Battle Fantasy 4">
         </a>
         <p class="gamecontent_text">Epic Battle Fantasy 4</p>
       </div>
 
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon strategy">
         <a href="games\The_Kings_League_Odyssey.html">
           <img src="images\The_Kings_League_Odyssey_icon.png" alt="The King's League: Odyssey">
         </a>
         <p class="gamecontent_text">The King's League: Odyssey</p>
       </div>
 
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon rpg">
         <a href="games\Epic_Battle_Fantasy_3.html">
           <img src="images\Epic_Battle_Fantasy_3_icon.png" alt="Epic Battle Fantasy 3">
         </a>
         <p class="gamecontent_text">Epic Battle Fantasy 3</p>
       </div>
 
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon strategy">
         <a href="games\Epic_War_4.html">
           <img src="images\Epic_War_4_icon.png" alt="Epic War 4 ">
         </a>
@@ -108,10 +108,11 @@
   </main>
   <!-- TODO Meny på botten i mobil läge? -->
   <footer class="contact">
-      <a href="" class="navtitle" id="title"><h2>Dino Gaming </h2></a>
+      <a href="#top" class="navtitle" id="title"><h2>Dino Gaming </h2></a>
       <div id="blah"><h3>Contact</h3></div>
        <p>(©)Daniel & (©)Hanna</p>
   </footer>
+  <script src="dino.js"></script>
 </body>
 <html>
 
