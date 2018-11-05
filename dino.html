@@ -7,7 +7,10 @@
   <title>dino gaming</title>
   <link rel="stylesheet" type="text/css" href="dino.css">
   <meta name="viewport" content="width=device-width">
+  <!--Putting script on the bottom would speed up the pageload -->
+  <script src="dino.js"></script>
   <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
 </head>
 <body>
   <header>
@@ -15,7 +18,7 @@
   </header>
   <!--<div class="bgheader">
     <h1>Dino Gaming!</h1></div> -->
-  <nav class="menu">
+  <nav class="menu" id="hannnnnnna">
     <div class="navigation">
       <h2>Action</h2>
       <h2>Puzzle</h2>
@@ -31,16 +34,18 @@
         </div>
         <p>FPS</p>
     </div>
-    <div class="maincontent">
-      <div class="gamecontent_icon">
+    <div class="maincontent" id="maincontent">
+      <!-- GAMETYPE -->
+      <div class="gamecontent_icon platform keyboard">
         <img src="images\1Quest_icon.png" alt="1Quest">
+        <!-- LÄNK TILL SPEL-->
         <p class="gamecontent_text"> Det var en gång ett äpple som var surt för alla ville bita i honom</p>
       </div>
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon puzzle mobile keyboard">
         <img src="images\1Quest_icon.png" alt="1Quest">
         <p class="gamecontent_text"> asd</p>
       </div>
-      <div class="gamecontent_icon">
+      <div class="gamecontent_icon rpg adventure keyboard">
         <img src="images\1Quest_icon.png" alt="1Quest">
         <p class="gamecontent_text"> asd</p>
         </div>
@@ -76,6 +81,7 @@
   </main>
   <!-- TODO Meny på botten i mobil läge? -->
   <footer class="contact">
+      <a href="" class="navtitle" id="title"><h2>Dino Gaming </h2></a>
       <div id="blah"><h3>Contact</h3></div>
        <p>(©)Daniel & (©)Hanna</p>
   </footer>
