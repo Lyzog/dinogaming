@@ -214,6 +214,27 @@ nav {
 #title:hover {
    color: #f2f2f2;
  }
+
+ /* CSS to make content differ per genre choosen */
+ /* TODO pick all the starting games */
+.gamecontent_icon {
+  display: none;
+}
+
+.visible_game {
+  display: block;
+}
+
+
+ /* highlight selected menu item*/
+ /* TODO pick and move the starting genre */
+ .highlight {
+   border: 2px solid #f2f2f2;
+   /*background-color: rgb(191, 220, 230);*/
+ }
+
+
+
 /* Test purpose only TODO remove*/
  header, main, nav, footer {
  /*  border: 2px solid red;*/
