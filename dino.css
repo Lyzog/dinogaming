@@ -11,12 +11,13 @@ body{
   background-size: cover;
   min-height: 100%;
 }
+/* The background image hovers in the background */
 body ::after {
   content: "";
   background: /*rgba(0, 0, 0, 0.5) */url(images/dinohead.png)no-repeat bottom 43px right fixed;
   top: 0px;
   left: 10px;
-  bottom: 10px;
+  bottom: 0px;
   right: 10px;
   position: absolute;
   opacity: 0.5;
@@ -36,21 +37,9 @@ header {
   font-size: 0.8em;
   /*width: 100%;*/
 }
-
-/*.bgheader { OM vill ha en osynlig div under header så den kan flyta
-FIXA HELLRE SÅ NAV BAREN FASTNAR
-https://codepen.io/JGallardo/pen/lJoyk
-  display: none;
-  position: relative;
-  text-align: left;
-  padding: 3px 20px 20px 20px;
-  background-color: rgb(191, 220, 230); /*193,219,162*/
-/*  border-radius: 2em 2em 0em 0em;
-  top: 3px;
-} */
-
-.menu {
-  position: static;
+nav {
+  /*position: static;*/
+  /*position: static;*/
   overflow: hidden;
   padding: 0px 20px 0px 20px;
   /*padding: 10px 40px 10px 40px;*/
@@ -74,8 +63,8 @@ https://codepen.io/JGallardo/pen/lJoyk
   color: #f2f2f2;
   text-align: center;
   padding: 3px 15px;
-  border-radius: 8px;
   text-decoration: none;
+  border-radius: 8px;
   /*display: block;*/
   flex: 1 1 auto;
   flex-basis: auto;
@@ -84,6 +73,17 @@ https://codepen.io/JGallardo/pen/lJoyk
   background-color: rgb(191, 220, 230);
   color: black;
 }
+/* OM VI VILL HA
+#navtitle:hover {
+  background-color: rgb(191, 220, 230);
+  color: black;
+}
+#navtitle{
+  visibility: hidden;
+}
+<div id="navtitle">Dino Gaming!</div>
+*/
+
 /* TODO - Visa vilken kategori man valt
 .navigation  h2:active{
   flex: 2 1 auto;
@@ -159,9 +159,6 @@ https://codepen.io/JGallardo/pen/lJoyk
 .gamecontent_text {
   margin: 3px 10px;
 }
-header, main, nav, footer {
-/*  border: 2px solid red;*/
-}
 .contact {
   clear: both;
   position: fixed;
@@ -175,14 +172,52 @@ header, main, nav, footer {
   color: rgb(139, 139, 138);
   /*z-index: -2;*/
 }
-.contact #blah{
+.contact #blah {
   display: none;
 }
-.contact p:hover, .contact h3:hover{
+.contact p:hover, .contact h3:hover {
   color: #f2f2f2;
 }
 
+/* CSS to make the navbar stick to top */
+.sticky {
+  position: fixed;
+  top: 0px;
+  right: 7px;
+  left: 7px;
+  opacity: 1;
+  z-index: +1;
+  border-radius: 2em 2em 0em 0em;
+}
+.sticky + .content{
+  padding-top: 60px;
+}
 
+/* CCS to make the title apear on the footer when header is not visible
+*/
+.navtitle {
+  position: absolute;
+  bottom: -6px;
+  left: 5%;
+
+  visibility: hidden;
+}
+#title {
+    color: black;
+}
+.visible-title {
+  visibility: visible;
+  text-decoration: none;
+  z-index: +1;
+}
+
+#title:hover {
+   color: #f2f2f2;
+ }
+/* Test purpose only TODO remove*/
+ header, main, nav, footer {
+ /*  border: 2px solid red;*/
+ }
 
 
 /*-------------------------------------------------------------------------------
@@ -202,7 +237,7 @@ header, main, nav, footer {
     padding: 2px 10px 5px 45px;
     font-size: 1.5em;
   }
-  .menu {
+  nav {
     padding: 0 40px 0 40px;
     font-size: 1em;
   }
@@ -235,6 +270,21 @@ header, main, nav, footer {
   }
   .contact #blah{
     display: block;
+  }
+
+  /* CCS to make the title appear on the footer when header is not visible
+  */
+  .navtitle {
+    position: absolute;
+    bottom: 9%;
+    left: 5%;
+    visibility: hidden;
+    z-index: +1;
+
+  }
+  .visible-title {
+    visibility: visible;
+    text-decoration: none;
   }
 }
 @media (min-width: 1000px) {
