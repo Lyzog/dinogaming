@@ -1,3 +1,8 @@
 body embed {
   width:800px; height:600px;
 }
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
