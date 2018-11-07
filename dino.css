@@ -1,6 +1,7 @@
 /* Visas på mobilanpassad skärm */
 * {
   font-family: 'Covered By Your Grace', cursive;
+  scroll-behavior: smooth;
 }
 html {
   min-height: 100%
@@ -73,24 +74,6 @@ nav {
   background-color: rgb(191, 220, 230);
   color: black;
 }
-/* OM VI VILL HA
-#navtitle:hover {
-  background-color: rgb(191, 220, 230);
-  color: black;
-}
-#navtitle{
-  visibility: hidden;
-}
-<div id="navtitle">Dino Gaming!</div>
-*/
-
-/* TODO - Visa vilken kategori man valt
-.navigation  h2:active{
-  flex: 2 1 auto;
-  background-color: rgb(191, 220, 230);
-  color: black;
-}*/
-
 .content {
   position: relative;
   padding: 0 10px 0 10px;
@@ -180,6 +163,17 @@ nav {
   color: #f2f2f2;
 }
 
+.vote_btn {
+  position: absolute;
+  bottom: 3px;
+  right: 12%;
+  z-index: +1;
+  color: black;
+  font-size: 2.1em;
+  overflow: hidden;
+}
+/* TODO Visa att vi redan klickat på vote knappen en gång*/
+
 /* CSS to make the navbar stick to top */
 .sticky {
   position: fixed;
@@ -217,7 +211,6 @@ nav {
  }
 
  /* CSS to make content differ per genre choosen */
- /* TODO pick all the starting games */
 .gamecontent_icon {
   display: none;
 }
@@ -292,6 +285,15 @@ nav {
   }
   .contact #blah{
     display: block;
+  }
+
+  .sticky + .content{
+    padding-top: 135px;
+  }
+  .vote_btn {
+    bottom: 16%;
+    right: 7%;
+    color: #f2f2f2;
   }
 
   /* CCS to make the title appear on the footer when header is not visible
