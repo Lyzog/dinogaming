@@ -62,7 +62,7 @@ nav {
   /*float: left;*/
   color: #f2f2f2;
   text-align: center;
-  padding: 3px 15px;
+  padding: 3px 10px;
   text-decoration: none;
   border-radius: 8px;
   /*display: block;*/
@@ -316,6 +316,12 @@ nav {
 @media (min-width: 1200px) {
   body ::after {
     background-size: 60%; /*45em*/
+  }
+}
+
+@media (max-width: 321px) {
+  .navigation  h2 {
+    padding: 3px 4px;
   }
 }
 /*  Ändra ngt så det stackar på varandra
