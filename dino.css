@@ -111,7 +111,7 @@ nav {
 .topcontent {
   /*width: 80%;*/
   /*margin: auto;*/
-  background-color: rgb(139, 139, 138);
+  /*background-color: rgb(139, 139, 138);*/
   padding: 20px 0px;
   margin-bottom: 15px;
   align-items: center;
@@ -125,12 +125,13 @@ nav {
   text-align: center;
 }
 .topcontent p:last-child {
-  transform: skewY(15deg);
+  /*transform: skewY(15deg);*/
   padding: 0px 0px 0px 10px;
 }
 .topcontent p:first-child{
   transform: skewY(-15deg);
   padding: 0px 10px 0px 0px;
+
 }
 #maintopcontent {
   flex: 2 1 auto;
