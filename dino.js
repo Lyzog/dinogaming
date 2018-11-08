@@ -3,10 +3,21 @@
 top and adds a link at the bottom that takes you to the top*/
 window.onscroll = function() {stickyNav()};
 
+var list = document.getElementById("hannnnnnna");
+var sticky = list.offsetTop;
+var title = document.getElementById("title");
+
 function stickyNav() {
-    var list = document.getElementById("hannnnnnna");
-    var sticky = list.offsetTop;
-    var title = document.getElementById("title");
+ /*
+     if (window.pageYOffset < sticky ){ //136 140
+      list.classList.remove("sticky");
+      title.classList.remove("visible-title");
+    }  else if (window.pageYOffset > sticky ) {
+        list.classList.add("sticky");
+        title.classList.add("visible-title");
+      }
+*/
+
     if (window.pageYOffset > sticky ) {
       list.classList.add("sticky");
       title.classList.add("visible-title");
