@@ -1,10 +1,10 @@
 /* Visas på mobilanpassad skärm */
 * {
   font-family: 'Covered By Your Grace', cursive;
-  scroll-behavior: smooth;
 }
 html {
   min-height: 100%
+  scroll-behavior: smooth;
 }
 body{
   background: radial-gradient(rgb(191, 220, 230), rgb(139, 139, 138)) rgb(191, 220, 230);
