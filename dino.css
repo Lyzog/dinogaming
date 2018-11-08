@@ -74,6 +74,9 @@ nav {
   background-color: rgb(191, 220, 230);
   color: black;
 }
+.navigation .purple_menu:hover {
+  background-color: purple;
+}
 .content {
   position: relative;
   padding: 0 10px 0 10px;
@@ -140,6 +143,9 @@ nav {
   border: 3px solid rgb(191, 220, 230);
   background-color: rgb(139, 139, 138);
 }
+.purple_gamecontent {
+  background-color: purple;
+}
 .gamecontent_text {
   margin: 3px 10px;
 }
@@ -162,6 +168,10 @@ nav {
 .contact p:hover, .contact h3:hover {
   color: #f2f2f2;
 }
+
+/* TODO Olika bvote knappar
+iatället för mobil och browser
+så texten ändras vid browser förminskning */
 
 .vote_btn {
   position: absolute;
