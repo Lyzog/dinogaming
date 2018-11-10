@@ -29,50 +29,58 @@
   </nav>
   <main class="content">
     <div class="topcontent">
-      <p><img src="images\Weeks.png"></p>
-        <div id="maintopcontent">
-          <img src="images\1Quest_icon.png" alt="1Quest">
-        </div>
-        <p class="topgame" id="topgame"><img src="images\RPG.png"></p>
+      <p>
+        <img src="images/This.png" alt="This" class="this_top">
+        <img src="images\Weeks.png" alt="Weeks">
+      </p>
+      <div id="maintopcontent">
+        <a href="games/1Quest.html" id="top_game_a">
+          <img src="images\1Quest_icon.png" alt="1Quest" id="top_game_img">
+        </a>
+      </div>
+      <p class="topgame" id="topgame">
+        <img src="images/Top.png" alt="top" class="this_top">
+        <img src="images\action.png" alt="genre image" id="top_genre_img">
+      </p>
     </div>
     <div class="maincontent" id="maincontent">
 
-      <div class="gamecontent_icon rpg mobile keyboard ">
+      <div class="gamecontent_icon rpg mobile keyboard" id="1Quest">
         <a href="games\1Quest.html">
           <img src="images\1Quest_icon.png" alt="1Quest">
         </a>
         <p class="gamecontent_text">1Quest</p>
       </div>
 
-      <div class="gamecontent_icon rpg mobile keyboard">
+      <div class="gamecontent_icon rpg mobile keyboard" id="Hired_Heroes">
         <a href="games\hired_heroes.html">
           <img src="images\hired_heroes_icon.png" alt="hired heroes">
         </a>
         <p class="gamecontent_text">Hired Heroes</p>
       </div>
 
-      <div class="gamecontent_icon rpg keyboard">
+      <div class="gamecontent_icon rpg keyboard" id="Quick_Quests">
         <a href="games\Quick_Quests.html">
           <img src="images\Quick_Quests_icon.png" alt="Quick Quests">
         </a>
         <p class="gamecontent_text">Quick Quests</p>
       </div>
 
-      <div class="gamecontent_icon puzzle mobile keyboard">
+      <div class="gamecontent_icon puzzle mobile keyboard" id="Blocks">
         <a href="games\Blocks.html">
           <img src="images\Blocks_icon.png" alt="Blocks">
         </a>
         <p class="gamecontent_text">Blocks</p>
       </div>
 
-      <div class="gamecontent_icon platform keyboard">
+      <div class="gamecontent_icon platform keyboard" id="Run_3">
         <a href="games\Run_3.html">
           <img src="images\Run_3_icon.png" alt="Run 3">
         </a>
         <p class="gamecontent_text">Run 3</p>
       </div>
 
-      <div class="gamecontent_icon platform keyboard">
+      <div class="gamecontent_icon platform keyboard" id="Learn_to_fly_2">
         <a href="games\Learn_to_fly_2.html">
           <img src="images\Learn_to_fly_2_icon.png" alt="Learn to fly 2">
         </a>
@@ -402,9 +410,17 @@
   <!-- TODO Meny på botten i mobil läge? -->
   <footer class="contact">
       <a href="#top" class="navtitle" id="title"><h2>Dino Gaming </h2></a>
-      <div id="blah"><h3>Contact</h3></div>
+      <div class="blah" id="blah"><h3>Contact</h3></div>
        <p>(©)Daniel & (©)Hanna</p>
-      <div class="vote_btn" id="vote_btn">Vote</div>
+      <div>
+        <ul>
+          <li><div class="vote_btn" id="vote_btn">Vote</div>
+            <ul class="dropdown" id="drop_Down_Vote">
+              <!-- Builds LI with JS -->
+            </ul>
+          </li>
+        </ul>
+      </div>
   </footer>
   <!--Putting script on the bottom would speed up the pageload
   and make sure classes and id's load before the script so they exist for scripting-->
