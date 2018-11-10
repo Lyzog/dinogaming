@@ -73,6 +73,7 @@ nav {
 .navigation  h2:hover {
   background-color: rgb(191, 220, 230);
   color: black;
+  cursor: pointer;
 }
 .navigation .purple_menu:hover {
   background-color: purple;
@@ -86,6 +87,7 @@ nav {
   display: flex;
   flex-direction: column;
   color: #f2f2f2;
+  padding-bottom: 200px;
 }
 .topcontent, .maincontent {
   /* flex position inom columnen */
@@ -100,31 +102,49 @@ nav {
   /*background-color: rgb(139, 139, 138);*/
   padding: 20px 0px;
   margin-bottom: 15px;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
+/* TODO change this
+  overflow: auto;*/
 }
+ .topcontent p {
+   max-width: 225px;
+   /*flex-wrap: wrap;*/
+   /*border: 3px solid red;*/
+ }
 .topcontent p:last-child, .topcontent p:first-child
 {
-  flex: 1 1 50px;
+  flex: 1; /*50px*/
   /* TODO titta på detta, verkar inte funka */
   /*width: 10%;*/
   text-align: center;
+  padding: 0px;
 }
 .topcontent p:last-child {
-  /*transform: skewY(15deg);*/
-  padding: 0px 0px 0px 10px;
+  transform: skewY(15deg);
 }
 .topcontent p:first-child{
   transform: skewY(-15deg);
-  padding: 0px 10px 0px 0px;
+}
+#topgame img:first-child {
+  text-align: center;
+}
 
+.topcontent p img {
+  max-height: 2em;
+  width: auto;
+  max-width: 75px;
+}
+.topcontent p .this_top {
+  max-height: 1em;
+  width: auto;
 }
 #maintopcontent {
-  flex: 2 1 auto;
+  flex: 1 1 auto;
   text-align: center;
 }
 #maintopcontent img {
-  width: 100px; height: 100px;
+  width: 100px; height: auto;
 }
 .maincontent {
   flex-wrap:wrap;
@@ -173,6 +193,7 @@ nav {
 iatället för mobil och browser
 så texten ändras vid browser förminskning */
 
+/* Rösta på spel CSS */
 .vote_btn {
   position: absolute;
   bottom: 3px;
@@ -181,7 +202,60 @@ så texten ändras vid browser förminskning */
   color: black;
   font-size: 2.1em;
   overflow: hidden;
+  border-radius: 15px;
+  padding: 4px;
+
+
 }
+li {
+  display: block;
+  transition-duration: 0.5s;
+  color: white;
+  padding: 0px 4px;
+}
+/*Vote menu hover */
+li div:hover{
+  cursor: pointer;
+  border: 2px solid white;
+}
+ul li ul li:hover {
+  border: 2px solid rgb(191, 220, 230);
+}
+/* Göm List itemsenra i vote menyn */
+ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 2em;
+  bottom: 74%;
+  right: 7%;
+  display: none;
+}
+ul li ul li {
+  border: 2px solid gray;
+  border-radius: 15px;
+  text-align: left;
+  background-color: gray;
+  font-size: 2em;
+}
+/* När hover vote knappen visa menyn */
+ul li:hover > ul, ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  cursor: pointer;
+  z-index: +1;
+}
+/*cleara menyn */
+ul li ul li {
+  clear: both;
+  width: 100;
+
+}
+
+
+
 /* TODO Visa att vi redan klickat på vote knappen en gång*/
 
 /* CSS to make the navbar stick to top */
@@ -229,15 +303,11 @@ så texten ändras vid browser förminskning */
   display: block;
 }
 
-
  /* highlight selected menu item*/
- /* TODO pick and move the starting genre */
  .highlight {
    border: 2px solid #f2f2f2;
    /*background-color: rgb(191, 220, 230);*/
  }
-
-
 
 /* Test purpose only TODO remove*/
  header, main, nav, footer {
@@ -253,7 +323,8 @@ så texten ändras vid browser förminskning */
 
 
  stor skärm */
-@media (min-width: 450px) { /*only screen and */
+@media (min-width: 481px) { /*only screen and
+  var 450*/
   body ::after {
     background: /*rgba(0, 0, 0, 0.5) */url(images/dinohead.png)no-repeat bottom right fixed;
     background-size: 75%; /*45em*/
@@ -269,20 +340,35 @@ så texten ändras vid browser förminskning */
   .navigation  h2 {
     flex: 0 1 auto;
   }
-
   .content {
     position: relative;
     padding: 0 110px 0 110px;
   }
+  .topcontent p:last-child {
+    padding: 0px 3px 0px 5px;
+  }
+  .topcontent p:first-child{
+    padding: 0px 5px 0px 3px;
+  }
+  .topcontent p img {
+    max-height: 4em;
+    max-width: 175px;
+  }
+  .topcontent p .this_top {
+    max-height: 2em;
+  }
+  #maintopcontent {
+    flex: 0 0 auto;
+  }
   #maintopcontent img {
-    width: 250px; height: 250px;
+    width: 250px; height: auto;
   }
   .maincontent {
     justify-content:space-evenly;
     padding-bottom: 75px;
   }
   .maincontent img{
-    width: 200px; height: 200px;
+    width: 200px; height: auto;
   }
   .gamecontent_icon {
     padding: 0px 10px;
@@ -320,18 +406,22 @@ så texten ändras vid browser förminskning */
     visibility: visible;
     text-decoration: none;
   }
+  ul li ul li {
+    font-size: 1.2em;
+  }
 }
+/*
 @media (min-width: 1000px) {
   body ::after {
-    background-size: 65%; /*45em*/
+    background-size: 65%;
   }
 }
 @media (min-width: 1200px) {
   body ::after {
-    background-size: 60%; /*45em*/
+    background-size: 60%;
   }
 }
-
+*/
 @media (max-width: 321px) {
   .navigation  h2 {
     padding: 3px 4px;
