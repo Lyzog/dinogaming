@@ -8,15 +8,6 @@ var sticky = list.offsetTop;
 var title = document.getElementById("title");
 
 function stickyNav() {
-/*
-     if (window.pageYOffset < sticky ){ //136 140
-      list.classList.remove("sticky");
-      title.classList.remove("visible-title");
-    }  else if (window.pageYOffset > sticky ) {
-        list.classList.add("sticky");
-        title.classList.add("visible-title");
-      }
-*/
 
     if (window.pageYOffset > sticky ) {
       list.classList.add("sticky");
@@ -73,6 +64,12 @@ function menuClicked() {
  //min width 450
  // https://stackoverflow.com/questions/641857/javascript-window-resize-event
 
+
+ //Temporary random game for top game of the week
+   let rdGame = randomGame();
+ //DIsplay this weeks game and remve it from the pages content display
+   displayTopGame(rdGame);
+
 }
 
 /* On page load add the content for the selected genre, atm action,
@@ -94,22 +91,52 @@ function pageLoad() {
   /* pick which image to display for this genre */
   topGenreImg();
 
-  //displayTopGame();
+
+//Temporary random game for top game of the week
+  let rdGame = randomGame();
+//DIsplay this weeks game and remve it from the pages content display
+  displayTopGame(rdGame);
 }
-/*document.getElementById("myFrame").addEventListener("load", pageLoad);
-document.getElementById("myFrame").onload = function() {pageLoad()};
-*/
-/*
-window.onload = function() {
-  console.log("MOBILE!!");
-};*/
+
+//Randomize this weeks topgame for now
+function randomGame() {
+
+  let visGames = document.getElementsByClassName("visible_game");
+  let rd = Math.floor(Math.random() * visGames.length);
+
+  if (visGames) {
+    return visGames[rd].id;
+  }
+  else {
+    return "1Quest";
+  }
+
+
+}
 
 
 /*Display the top game for the genre and Fall back top game */
 function displayTopGame(topGame) {
 
+  let gameName =  topGame.replace(/ /g, "_");
 
+  if (gameName.includes("Vote:")) {
+    gameName = gameName.replace("Vote:_", "").trim();
+  }
 
+  let gameImg = "images\\" + gameName + "_icon.png"
+  let gameLink = "games\\" + gameName + ".html";
+
+  document.getElementById("top_game_img").src = gameImg;
+  document.getElementById("top_game_a").href = gameLink;
+
+  //remove the top game from the content display IF exists
+
+  for (var i = 0; i < selectedContent.length; i++) {
+    if (selectedContent[i].id.includes(gameName)) {
+      selectedContent[i].classList.remove("visible_game");
+    }
+  }
 }
 
 
@@ -119,7 +146,7 @@ function fillGames() {
   //Visa nya valda spel
   for (var i = 0; i < selectedContent.length; i++) {
     //om på mobil
-    if (screen.width < 450) {
+    if (screen.width < 481) { //481px 450
       if (selectedContent[i].classList.contains("mobile")) {
         selectedContent[i].classList.add("visible_game");
         bigScreen = false;
@@ -176,6 +203,29 @@ function votePrompt(bigScreen) {
     node.appendChild(textnode);
     document.getElementById("drop_Down_Vote").appendChild(node);
   }
+}
+
+
+//TODO Ta bort eller gör snyggare
+document.getElementsByTagName("BODY")[0].onresize = function() {resize()};
+
+function resize() {
+  console.log("HELLO ELLER");
+
+if (screen.width < 481  && screen.width > 359) {
+  console.log("HELLO");
+
+  fillGames(); //decides bigScreen as well
+  votePrompt(bigScreen);
+
+  let rdGame = randomGame();
+  displayTopGame(rdGame);
+
+}
+
+
+
+
 }
 
 
