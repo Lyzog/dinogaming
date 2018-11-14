@@ -70,6 +70,22 @@ function menuClicked() {
  //DIsplay this weeks game and remve it from the pages content display
    displayTopGame(rdGame);
 
+
+   //Change the colorscheme depending on genre choosen TODO
+   /*if (selectedMenu.id === "platform") {
+     colorScheme("purple", "black", "purple");
+   }*/
+/*
+   switch (expression) {
+     case expression:
+
+       break;
+     default:
+
+   }*/
+
+
+
 }
 
 /* On page load add the content for the selected genre, atm action,
@@ -129,6 +145,8 @@ function displayTopGame(topGame) {
 
   document.getElementById("top_game_img").src = gameImg;
   document.getElementById("top_game_a").href = gameLink;
+  document.getElementById("imgtext").innerHTML= gameName.replace(/_/g," ").trim();
+
 
   //remove the top game from the content display IF exists
 
@@ -228,6 +246,74 @@ if (screen.width < 481  && screen.width > 359) {
 
 }
 
+var selectMenuHover = document.getElementsByClassName("menu");
+var selectGameBg = document.getElementsByClassName("gamecontent_icon");
+var bgOrig = true;
+var bgPurple = "purple";
+var bgBlack = "black";
+var bgBlue = "rgb(191, 220, 230)";
+var bgGray = "rgb(139, 139, 138)";
+
+
+function colorScheme(color1, color2, maincolor) {
+
+   //"radial-gradient(rgb(191, 220, 230), rgb(139, 139, 138))";
+     document.body.style.background = "radial-gradient("+color1+", "+color2+ ")";
+     document.getElementsByTagName("header")[0].style.background  = color1;
+     document.getElementsByTagName("nav")[0].style.background  = color2;
+     document.getElementsByTagName("footer")[0].style.background  = color1;
+
+     //var hmm = selectMenuHover.classList.includes("_menu")
+     //var hmm2 =selectGameBg.classList.includes("_gamecontent")
+     let hmm = "";
+
+     //console.log(selectMenuHover.length);
+
+
+     for (var i = 0; i < selectMenuHover.length; i++) {
+      hmm =  selectMenuHover[i].classList + " ";
+     }
+     console.log(hmm);
+
+     if (hmm.includes("_menu")) {
+       //console.log("JAAA INCLUDES");
+       //console.log(selectMenuHover.length);
+
+       for (var i = 0; i < selectMenuHover.length; i++) {
+         //console.log(selectMenuHover[i].id);
+         //console.log( "selectedmenu = " + selectedMenu.id );
+         selectMenuHover[i].className = "menu " + maincolor + "_menu";
+         if (selectedMenu.id === selectMenuHover[i].id ) {
+           //console.log("DOM ÄR ===!");
+           selectMenuHover[i].classList.add("highlight");
+         }
+       }
+     } else {
+       for (var i = 0; i < selectMenuHover.length; i++) {
+         selectMenuHover[i].classList.add(maincolor+ "_menu");
+        // console.log("Lägg till lila");
+       }
+     }
+
+    /* for (var i = 0; i < selectGameBg.length; i++) {
+       let classArray = selectGameBg[i].classList;
+       //console.log(classArray.length);
+       for (var i = 0; i < classArray.length; i++) {
+         if (classArray[i].includes("_gamecontent")) {
+           console.log("Innehåller lila");
+
+         }
+         //classArray[i]
+       }*/
+       /*if (hmm2) {
+         console.log("GÖR Speldiven LILA");
+          //selectGameBg[i].classList.remove(maincolor + "_gamecontent");
+       }*/
+
+       //selectGameBg[i].classList.add(maincolor + "_gamecontent");
+    // }
+
+}
 
 
 /* Vid kontakt klick- gör allt lila*/
@@ -248,6 +334,8 @@ var bgGray = "rgb(139, 139, 138)";
 
 /*TODO Kanske lägga till inkommande variabler i funktionen så varje
 genre har sin egenn färg */
+
+
 function contactClick() {
 
    if (!bgOrig) {   //"radial-gradient(rgb(191, 220, 230), rgb(139, 139, 138))";
