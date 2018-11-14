@@ -53,6 +53,9 @@ nav {
   display: flex;
   flex-direction: column;
 }
+a:link {
+  text-decoration: none;
+}
 .navigation {
   flex: 1 1 auto;
   display: flex;
@@ -148,6 +151,15 @@ nav {
 }
 #maintopcontent img {
   width: 100px; height: auto;
+}
+#maintopcontent #imgtext {
+  /*position: absolute;
+  top: 45px;
+  left: 45%;
+  transform: translate(-50%, -50%);*/
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
 }
 .maincontent {
   flex-wrap:wrap;
