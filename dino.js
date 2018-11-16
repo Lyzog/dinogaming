@@ -49,7 +49,6 @@ function menuClicked() {
     selectedContent[i].classList.remove("visible_game");
   }
 
-
   //Hitta nya valda spel
   selectedContent = document.getElementsByClassName(selectedMenu.id);
 
@@ -60,32 +59,32 @@ function menuClicked() {
   /* pick which image to display for this genre */
   topGenreImg();
  /*  votePrompt("browser"); */
- //screen.width
- //min width 450
- // https://stackoverflow.com/questions/641857/javascript-window-resize-event
-
 
  //Temporary random game for top game of the week
    let rdGame = randomGame();
  //DIsplay this weeks game and remve it from the pages content display
    displayTopGame(rdGame);
 
+//Change colorscheme depending on gametype
+/*to change color on menues find css ending in _gamecontent
+ and _menu:hover and change those corresponding values */
+   switch (selectedMenu.id) {
+     case "platform":
+      colorScheme("purple", "black", "purple");
+        break;
+     case "strategy":
+      colorScheme("rgb(8, 141, 48)", "black", "green");
+        break;
+     case "puzzle":
+      colorScheme("rgb(253, 253, 147)", "purple", "lightyellow");
+        break;
+      case "rpg":
+      colorScheme("orange", "brown", "orange");
+        break;
 
-   //Change the colorscheme depending on genre choosen TODO
-   /*if (selectedMenu.id === "platform") {
-     colorScheme("purple", "black", "purple");
-   }*/
-/*
-   switch (expression) {
-     case expression:
-
-       break;
      default:
-
-   }*/
-
-
-
+      colorScheme("rgb(191, 220, 230)", "rgb(139, 139, 138)", "lightblue");
+   }
 }
 
 /* On page load add the content for the selected genre, atm action,
@@ -126,8 +125,6 @@ function randomGame() {
   else {
     return "1Quest";
   }
-
-
 }
 
 
@@ -149,7 +146,6 @@ function displayTopGame(topGame) {
 
 
   //remove the top game from the content display IF exists
-
   for (var i = 0; i < selectedContent.length; i++) {
     if (selectedContent[i].id.includes(gameName)) {
       selectedContent[i].classList.remove("visible_game");
@@ -201,11 +197,11 @@ function votePrompt(bigScreen) {
 
   if (bigScreen) {
     //texten är beskrivande
-    voteDiv.innerHTML = "Next weeks " + selectedMenu.id ;
+    voteDiv.innerHTML = "Next Weeks " + selectedMenu.id ;
 
   } else { //mobile
     //Texten är Vote
-    voteDiv.innerHTML = "Vote";
+    voteDiv.innerHTML = "VOTE";
   }
   //remove the old games
   let oldTextNode = document.getElementById("drop_Down_Vote");
@@ -228,10 +224,10 @@ function votePrompt(bigScreen) {
 document.getElementsByTagName("BODY")[0].onresize = function() {resize()};
 
 function resize() {
-  console.log("HELLO ELLER");
+  //console.log("HELLO ELLER");
 
 if (screen.width < 481  && screen.width > 359) {
-  console.log("HELLO");
+  //console.log("HELLO");
 
   fillGames(); //decides bigScreen as well
   votePrompt(bigScreen);
@@ -241,131 +237,54 @@ if (screen.width < 481  && screen.width > 359) {
 
 }
 
-
-
-
 }
 
+/*Change the color of the page depending on which game genre you're looking at*/
 var selectMenuHover = document.getElementsByClassName("menu");
 var selectGameBg = document.getElementsByClassName("gamecontent_icon");
-var bgOrig = true;
-var bgPurple = "purple";
-var bgBlack = "black";
-var bgBlue = "rgb(191, 220, 230)";
-var bgGray = "rgb(139, 139, 138)";
-
 
 function colorScheme(color1, color2, maincolor) {
 
-   //"radial-gradient(rgb(191, 220, 230), rgb(139, 139, 138))";
+    //change the main elements' color
      document.body.style.background = "radial-gradient("+color1+", "+color2+ ")";
      document.getElementsByTagName("header")[0].style.background  = color1;
      document.getElementsByTagName("nav")[0].style.background  = color2;
      document.getElementsByTagName("footer")[0].style.background  = color1;
 
-     //var hmm = selectMenuHover.classList.includes("_menu")
-     //var hmm2 =selectGameBg.classList.includes("_gamecontent")
-     let hmm = "";
+     let classes = "";
+     let oldColor = "";
 
-     //console.log(selectMenuHover.length);
-
-
-     for (var i = 0; i < selectMenuHover.length; i++) {
-      hmm =  selectMenuHover[i].classList + " ";
-     }
-     console.log(hmm);
-
-     if (hmm.includes("_menu")) {
-       //console.log("JAAA INCLUDES");
-       //console.log(selectMenuHover.length);
-
-       for (var i = 0; i < selectMenuHover.length; i++) {
-         //console.log(selectMenuHover[i].id);
-         //console.log( "selectedmenu = " + selectedMenu.id );
-         selectMenuHover[i].className = "menu " + maincolor + "_menu";
-         if (selectedMenu.id === selectMenuHover[i].id ) {
-           //console.log("DOM ÄR ===!");
-           selectMenuHover[i].classList.add("highlight");
-         }
+     //if applicable find the name of the old colorscheme
+     classes = selectMenuHover[0].className.split(" ");
+     for (var i = 0; i < classes.length; i++) {
+       if (classes[i].includes("_menu")) {
+         oldColor = classes[i].replace("_menu","").trim();
        }
+     }
+
+    // If an old colorscheme was found
+     if (oldColor != "") { //classes.includes("_menu")
+
+      //Overwrite the menubars css classes
+       for (var i = 0; i < selectMenuHover.length; i++) {
+         selectMenuHover[i].className = "menu " + maincolor + "_menu";
+       }
+       //Reattach the highlight class to the selected menu
+       selectedMenu.classList.add("highlight");
+
+       //remove and add the new colorscheme to the divs around the games
+       for (var i = 0; i < selectGameBg.length; i++) {
+         selectGameBg[i].classList.remove(oldColor + "_gamecontent");
+         selectGameBg[i].classList.add(maincolor + "_gamecontent");
+       }
+    // backup, if nothing was choosen
      } else {
        for (var i = 0; i < selectMenuHover.length; i++) {
-         selectMenuHover[i].classList.add(maincolor+ "_menu");
+         selectMenuHover[i].classList.add(maincolor + "_menu");
         // console.log("Lägg till lila");
        }
+       for (var i = 0; i < selectGameBg.length; i++) {
+         selectGameBg[i].classList.add(maincolor + "_gamecontent");
+       }
      }
-
-    /* for (var i = 0; i < selectGameBg.length; i++) {
-       let classArray = selectGameBg[i].classList;
-       //console.log(classArray.length);
-       for (var i = 0; i < classArray.length; i++) {
-         if (classArray[i].includes("_gamecontent")) {
-           console.log("Innehåller lila");
-
-         }
-         //classArray[i]
-       }*/
-       /*if (hmm2) {
-         console.log("GÖR Speldiven LILA");
-          //selectGameBg[i].classList.remove(maincolor + "_gamecontent");
-       }*/
-
-       //selectGameBg[i].classList.add(maincolor + "_gamecontent");
-    // }
-
-}
-
-
-/* Vid kontakt klick- gör allt lila*/
-// Hämta contact texten
-var selectContact = document.getElementById("blah");
-//Make the contacttext clickable
-selectContact.addEventListener("click", contactClick);
-
-//hämta elementen där vi vill ändra
-var selectMenuHover = document.getElementsByClassName("menu");
-var selectGameBg = document.getElementsByClassName("gamecontent_icon");
-var bgOrig = true;
-var bgPurple = "purple";
-var bgBlack = "black";
-var bgBlue = "rgb(191, 220, 230)";
-var bgGray = "rgb(139, 139, 138)";
-
-
-/*TODO Kanske lägga till inkommande variabler i funktionen så varje
-genre har sin egenn färg */
-
-
-function contactClick() {
-
-   if (!bgOrig) {   //"radial-gradient(rgb(191, 220, 230), rgb(139, 139, 138))";
-     document.body.style.background = "radial-gradient("+bgBlue+", "+bgGray+ ")";
-     document.getElementsByTagName("header")[0].style.background  = bgBlue;
-     document.getElementsByTagName("nav")[0].style.background  = bgGray;
-     document.getElementsByTagName("footer")[0].style.background  = bgBlue;
-
-     for (var i = 0; i < selectMenuHover.length; i++) {
-       selectMenuHover[i].classList.remove("purple_menu");
-     }
-     for (var i = 0; i < selectGameBg.length; i++) {
-       selectGameBg[i].classList.remove("purple_gamecontent");
-     }
-     bgOrig = true;
-   }
-   else {
-    document.body.style.background = "radial-gradient("+bgPurple+", "+bgBlack+")";
-    document.getElementsByTagName("header")[0].style.background  = bgPurple;
-    document.getElementsByTagName("nav")[0].style.background  = bgBlack;
-    document.getElementsByTagName("footer")[0].style.background  = bgPurple;
-
-    //gör alla hovers i menyn lila
-    for (var i = 0; i < selectMenuHover.length; i++) {
-      selectMenuHover[i].classList.add("purple_menu");
-    }
-    //gör alla spel divar bg lila
-    for (var i = 0; i < selectGameBg.length; i++) {
-      selectGameBg[i].classList.add("purple_gamecontent");
-    }
-    bgOrig = false;
-  }
 }

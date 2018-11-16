@@ -81,6 +81,18 @@ a:link {
 .navigation .purple_menu:hover {
   background-color: purple;
 }
+.navigation .green_menu:hover {
+  background-color: rgb(8, 141, 48);
+}
+.navigation .lightblue:hover {
+  background-color: rgb(191, 220, 230);
+}
+.navigation .lightyellow_menu:hover {
+  background-color: rgb(253, 253, 147)
+}
+.navigation .orange_menu:hover {
+  background-color: orange;
+}
 .content {
   position: relative;
   padding: 0 10px 0 10px;
@@ -159,7 +171,7 @@ a:link {
   transform: translate(-50%, -50%);*/
   text-decoration: none;
   color: white;
-  font-size: 2em;
+  font-size: 1em;
 }
 .maincontent {
   flex-wrap:wrap;
@@ -180,6 +192,22 @@ a:link {
 }
 .purple_gamecontent {
   background-color: purple;
+  border: 3px solid purple;
+}
+.green_gamecontent {
+  background-color: rgb(8, 141, 48);
+  border: 3px solid rgb(8, 141, 48);
+}
+.lightblue_gamecontent {
+  background-color: rgb(139, 139, 138);
+}
+.lightyellow_gamecontent {
+  background-color: rgb(253, 253, 147);
+  border: 3px solid rgb(253, 253, 147);
+}
+.orange_gamecontent {
+  background-color: orange;
+  border: 3px solid brown;
 }
 .gamecontent_text {
   margin: 3px 10px;
@@ -219,8 +247,7 @@ så texten ändras vid browser förminskning */
   overflow: hidden;
   border-radius: 15px;
   padding: 4px;
-
-
+  text-transform: capitalize;
 }
 li {
   display: block;
@@ -380,6 +407,9 @@ ul li ul li {
   }
   #maintopcontent img {
     width: 250px; height: auto;
+  }
+  #maintopcontent #imgtext {
+    font-size: 2em;
   }
   .maincontent {
     justify-content:space-evenly;
