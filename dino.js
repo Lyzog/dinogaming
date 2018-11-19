@@ -87,6 +87,10 @@ function menuClicked() {
    }
 }
 
+/*window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}*/
+
 /* On page load add the content for the selected genre, atm action,
 depending on mobile(smaller format) or not.
  To change selected genre change the selectedMenu and selectedContent
@@ -111,6 +115,9 @@ function pageLoad() {
   let rdGame = randomGame();
 //DIsplay this weeks game and remve it from the pages content display
   displayTopGame(rdGame);
+
+  //prevents the page from loading and focusing on the middle
+  //window.scrollTo(0, 0);
 }
 
 //Randomize this weeks topgame for now
